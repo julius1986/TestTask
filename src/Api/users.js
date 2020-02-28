@@ -6,7 +6,7 @@ router.get("/", (req, res) => {
 })
 
 router.get("/:userId", (req, res) => {
-    res.send(req.params.userId);
+    res.send("get user by id ",req.params.userId);
 });
 
 module.exports = router;
