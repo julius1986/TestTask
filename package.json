@@ -4,7 +4,7 @@
   "description": "this is tesk task for firm",
   "main": "src/index.js",
   "scripts": {
-    "start":"node src/index.js",
+    "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,5 +22,11 @@
   "bugs": {
     "url": "https://github.com/julius1986/TestTask/issues"
   },
-  "homepage": "https://github.com/julius1986/TestTask#readme"
+  "homepage": "https://github.com/julius1986/TestTask#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
 }
