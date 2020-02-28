@@ -1,9 +1,10 @@
+require('dotenv').config()
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const users = require('./Api/users');
 
-mongoose.connect("mongodb://localhost:27017/TestDB?readPreference=primary", {
+mongoose.connect(process.env.DB_CONNECTION, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
@@ -14,4 +15,6 @@ app.get("/testlink", (req, res) => {
     res.send("test response")
 })
 
-app.listen(3000, () => console.log("Server started on port", 3000))
+app.listen(process.env.SERVER_PORT, () =>
+  console.log("Server started on port", process.env.SERVER_PORT)
+);
