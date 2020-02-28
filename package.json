@@ -1,0 +1,25 @@
+{
+  "name": "testtask",
+  "version": "1.0.0",
+  "description": "this is tesk task for firm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julius1986/TestTask.git"
+  },
+  "keywords": [
+    "MongoDB",
+    "Node",
+    "express",
+    "react"
+  ],
+  "author": "Yuliy Yefymenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julius1986/TestTask/issues"
+  },
+  "homepage": "https://github.com/julius1986/TestTask#readme"
+}
