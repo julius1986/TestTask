@@ -23,14 +23,14 @@ router.post('/', async (req, res)=>{
     const newUser = new Users(req.body.user);
     await newUser.save(function(err) {
       if (err) {
-        res.send(false);
+        res.send({result:false});
       } else {
-        res.send(true);
+        res.send({ result: true });
       }
     });
   }
   else{
-    res.send(false);
+    res.send({ result: false });
   }
   
 })
