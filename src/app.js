@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const users = require('./Api/users');
+app.use(express.json())
 
 mongoose.connect(process.env.DB_CONNECTION, {
   useNewUrlParser: true,
