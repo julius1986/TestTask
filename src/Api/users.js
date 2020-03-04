@@ -13,9 +13,20 @@ router.get("/:userId",async (req, res) => {
     const users = await Users.findOne({
       _id: new mongoose.Types.ObjectId(req.params.userId)
     });    
-    console.log(users);
     let result = users ? users : "can't find user";
     res.send(result);
 });
+
+router.post('/', async (req, res)=>{
+  const newUser = new Users(req.body.user);
+  await newUser.save(function(err){
+    if(err){ 
+    res.send(false)
+    }
+    else{
+      res.send(true)
+    }
+  });
+})
 
 module.exports = router;
