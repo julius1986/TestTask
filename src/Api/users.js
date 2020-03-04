@@ -20,7 +20,7 @@ router.get("/:userId",async (req, res) => {
 
 router.post('/', async (req, res)=>{
   if (checkMail(req.body.user.email)) {
-    const newUser = new Users(req.body.user);
+    const newUser = new Users(req.body);
     await newUser.save(function(err) {
       if (err) {
         res.send({result:false});
