@@ -23,14 +23,14 @@ router.post('/', async (req, res)=>{
     const newUser = new Users(req.body);
     await newUser.save(function(err) {
       if (err) {
-        res.send({result:false});
+        res.send({result:false, msg:err});
       } else {
-        res.send({ result: true });
+        res.send({result: true });
       }
     });
   }
   else{
-    res.send({ result: false });
+    res.send({ result: false, msg:"wrong email" });
   }
   
 })
