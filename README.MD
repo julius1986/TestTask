@@ -1,5 +1,7 @@
 #Test application
 
+#### front-end part https://github.com/julius1986/TestTaskFront
+
 Tech stack:  
 - Back-end - <strong>mongoose, express</strong>
 - Front-end - <strong>react, redux</strong>
