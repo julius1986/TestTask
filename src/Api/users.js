@@ -7,7 +7,7 @@ const checkMail = require("../Utils/checkMail");
 router.get("/", async (req, res) => {
     const users = await Users.find({});
     let result = users.length?users:"cant find any users"
-    res.send(result);
+    res.status(200).json(result);
 })
 
 router.get("/:userId",async (req, res) => {
@@ -23,14 +23,14 @@ router.post('/', async (req, res)=>{
     const newUser = new Users(req.body);
     await newUser.save(function(err) {
       if (err) {
-        res.send({result:false, msg:err});
+        res.send({result:false});
       } else {
         res.send({result: true });
       }
     });
   }
   else{
-    res.send({ result: false, msg:"wrong email" });
+    res.send({ result: false});
   }
   
 })
