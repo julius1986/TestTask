@@ -14,8 +14,11 @@ mongoose.connect(process.env.DB_CONNECTION, {
 
 app.use("/users", users)
 
-app.listen(process.env.SERVER_PORT, () =>
+let server = app.listen(process.env.SERVER_PORT, () =>
   console.log("Server started on port", process.env.SERVER_PORT)
 );
 
-module.exports = app;
+module.exports = {
+  app,
+  server
+};

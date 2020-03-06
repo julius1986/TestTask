@@ -1,7 +1,18 @@
 const request = require("supertest");
-const app = require("../app");
+const {app,server} = require("../app");
+const mongoose = require('mongoose');
 
-describe("Get request", () => {
+beforeAll(function() {
+  console.log("Before");
+});
+
+afterAll(function() {
+  mongoose.disconnect()
+  server.close();
+});
+
+
+describe("Get request '/users'", () => {
   it("should get all users",  (done) => {
      request(app)
       .get("/users")
@@ -14,7 +25,7 @@ describe("Get request", () => {
   });
 });
 
-describe("Post request", () => {
+describe("Post request '/users'", () => {
   
   it("should add new user, and back 'true' ", done => {
     const input = {
