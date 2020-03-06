@@ -15,26 +15,29 @@ describe("Get request", () => {
 });
 
 describe("Post request", () => {
+  
   it("should add new user, and back 'true' ", done => {
+    const input = {
+      firstName: "Misha",
+      lastName: "Petrow",
+      email: "misha@gmail.com",
+      eventDate: "2020-03-04T10:56:20.833Z"
+    };
+    const output = { result: true, body:input };
     request(app)
       .post("/users")
-      .send({
-        firstName: "Misha",
-        lastName: "Petrow",
-        email: "misha@gmail.com",
-        eventDate: "1583319380833"
-      })
+      .send(input)
       .set("Accept", "application/json")
-      .expect(200, {result:true})
+      .expect(200)
       .end(function(err, res) {
+         expect(res.body).toMatchObject(output);
         if (err) return done(err);
         done();
       });
   });
-});
 
-describe("Post request", () => {
   it("should try to add new user(with wrong email) and back 'false' ", done => {
+    const output = { result: false, body: "bad email" };
     request(app)
       .post("/users")
       .send({
@@ -44,10 +47,11 @@ describe("Post request", () => {
         eventDate: "1583319380833"
       })
       .set("Accept", "application/json")
-      .expect(200, { result: false,  })
+      .expect(200, output)
       .end(function(err, res) {
         if (err) return done(err);
         done();
       });
   });
+
 });
